@@ -1,15 +1,26 @@
 
-function SearchProducts(){
+import React, { useState } from "react";
 
-    return (
-        <div className="search">
-           <input placeholder="Search for food" type="text" className="product-search"></input>
+function SearchProducts({ onSearch }) {
+  const [searchValue, setSearchValue] = useState("");
 
-        </div>
-    )
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setSearchValue(value);
+    onSearch(value);
+  };
 
-
+  return (
+    <div className="search">
+      <input
+        placeholder="Search for food"
+        type="text"
+        className="product-search"
+        value={searchValue}
+        onChange={handleChange}
+      />
+    </div>
+  );
 }
-
 
 export default SearchProducts

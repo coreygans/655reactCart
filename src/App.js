@@ -3,6 +3,7 @@ import "./App.css";
 import ProductList from "./components/ProductList";
 import SiteHeader from "./components/Header";
 import Cart from "./components/Cart";
+import SearchProducts from "./components/SearchProducts";
 
 function App() {
   const products = [
@@ -52,6 +53,8 @@ function App() {
   ];
 
   const cartProducts = [""];
+  const [searchTerm, setSearchTerm] = useState("");
+
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (product) => {
@@ -73,12 +76,21 @@ function App() {
   const removeFromCart = (itemId) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
   };
+  const handleSearch = (value) => {
+    setSearchTerm(value);
+  };
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="app">
-      <SiteHeader />
+             <h1>The Food Store</h1>
 
-      <ProductList products={products} addToCart={addToCart} />
+      {/* <SiteHeader /> */}
+      <SearchProducts onSearch={handleSearch} />
+
+      <ProductList products={filteredProducts} addToCart={addToCart} />
       <Cart cartItems={cartItems} removeFromCart={removeFromCart} />
     </div>
   );

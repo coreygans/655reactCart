@@ -10,7 +10,7 @@ function SiteHeader() {
         {/* <Link to="/" className="header-link">
           Home
         </Link> */}
-        <SearchProducts />
+        
         {/* <Link to="/cart" className="header-link">
           Cart
         </Link> */}
