@@ -1,4 +1,3 @@
-import {useState} from "react";
 
 function Product({ product, addToCart }) {
   return (
