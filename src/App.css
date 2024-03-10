@@ -23,6 +23,12 @@ li {
   list-style-type: none;
 }
 
+.cart-item-details{
+  padding-bottom: 20px;
+}
+.removeFromCart{
+  margin-bottom: 10px;
+}
 @media screen and (max-width: 768px) {
   body {
     flex-direction: column;
@@ -38,7 +44,7 @@ li {
   display: flex;
   flex-wrap: wrap;
   margin-left: 50px;
-  max-height: 780px;
+  max-height: 760px;
 }
 
 .product {
