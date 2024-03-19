@@ -2,6 +2,8 @@
 import Product from "./Product";
 
 function ProductList({ products, addToCart }) {
+
+  //Check if there are products and if yes, then pass the props to the Product component
   return (
     <div className="product-list">
       {products.length === 0 ? (

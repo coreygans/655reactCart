@@ -1,4 +1,5 @@
 
+
 function Cart({ cartItems, removeFromCart }) {
 
     // const totalPrice = cartItems.reduce((total, item) => {
@@ -7,11 +8,12 @@ function Cart({ cartItems, removeFromCart }) {
     return (
       <div className="cart">
         <h2>Your Cart</h2>
+        {/* Check if the cart is empty and show a message if it is */}
         {cartItems.length === 0 ? (
           <p>Your cart is empty</p>
         ) : (
           <div className="cartContents"> 
-            <button >proceed to checkout</button> <br />
+            <button className="proceedCheckout">proceed to checkout</button> <br />
             {/* Your cart total <br /> (before shipping and tax): ${totalPrice} */}
           <ul>
             {cartItems.map((item) => (

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 function SearchProducts({ onSearch }) {
   const [searchValue, setSearchValue] = useState("");
 
+  //As you type, it updates the search value to use for filtering
   const handleChange = (e) => {
     const value = e.target.value;
     setSearchValue(value);

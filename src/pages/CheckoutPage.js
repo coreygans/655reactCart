@@ -1,4 +1,5 @@
 import SiteHeader from "../components/Header";
+import Checkout from "../components/Checkout";
 
 export default function CheckoutPage(){
 
@@ -6,6 +7,7 @@ export default function CheckoutPage(){
         <div>
             <SiteHeader />
             <h1> Checkout!</h1>
+            <Checkout />
         </div>
     )
 
