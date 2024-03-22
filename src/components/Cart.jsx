@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
 
 
 function Cart({ cartItems, removeFromCart }) {
 
-    // const totalPrice = cartItems.reduce((total, item) => {
-    //     return total + item.price * item.quantity;
-    //   }, 0);
+     const totalPrice = cartItems.reduce((total, item) => {
+       return total + item.price * item.quantity;
+       }, 0);
     return (
       <div className="cart">
         <h2>Your Cart</h2>
@@ -13,8 +14,9 @@ function Cart({ cartItems, removeFromCart }) {
           <p>Your cart is empty</p>
         ) : (
           <div className="cartContents"> 
-            <button className="proceedCheckout">proceed to checkout</button> <br />
-            {/* Your cart total <br /> (before shipping and tax): ${totalPrice} */}
+          <button className='proceedCheckout'>
+            <Link to="/checkout"  className="proceedCheckout">proceed to checkout</Link></button> <br />
+            Your cart total: <br /> ${totalPrice}
           <ul>
             {cartItems.map((item) => (
               <li key={item.id} className="cart-item">

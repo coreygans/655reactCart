@@ -25,18 +25,24 @@ export const CartProvider = ({ children }) => {
   const removeFromCart = (itemId) => {
     //Remove the product from the cart
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
-  }
-  return (
-      <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
-        {children}
-      </CartContext.Provider>
-    );
   };
 
+  const clearCart = () => {
+    setCartItems([]);
+  };
+  return (
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, clearCart }}>
+      {children}
+    </CartContext.Provider>
+  );
+};
+
+
+
 export const useCart = () => {
-const context = useContext(CartContext);
-if (!context) {
+  const context = useContext(CartContext);
+  if (!context) {
     throw new Error("useCart must be used within a CartProvider");
-}
-return context;
+  }
+  return context;
 };

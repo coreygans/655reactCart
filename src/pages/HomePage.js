@@ -4,9 +4,13 @@ import ProductList from "../components/ProductList";
 import SiteHeader from "../components/Header";
 import Cart from "../components/Cart";
 import SearchProducts from "../components/SearchProducts";
+import { useCart } from '../context/CartContext';
+
 
 export default function HomePage() {
   // Products to load
+  const { cartItems, addToCart, removeFromCart } = useCart();
+
   const products = [
     {
       id: 1,
@@ -55,29 +59,6 @@ export default function HomePage() {
 
   const [searchTerm, setSearchTerm] = useState("");
 
-  const [cartItems, setCartItems] = useState([]);
-
-  const addToCart = (product) => {
-    const existingItem = cartItems.find((item) => item.id === product.id);
-    // Check if the item already exists in the cart and increment qty
-    if (existingItem) {
-      setCartItems((prevItems) =>
-        prevItems.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        )
-      );
-    } else {
-      //If the product doesn't exist then add it to the cart
-      setCartItems((prevItems) => [...prevItems, { ...product, quantity: 1 }]);
-    }
-    console.log("Adding to cart:", product);
-  };
-  const removeFromCart = (itemId) => {
-    //Remove the product from the cart
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
-  };
   const handleSearch = (value) => {
     //Set the search term for filtering the products
     setSearchTerm(value);
